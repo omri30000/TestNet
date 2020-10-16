@@ -2,4 +2,7 @@
     <string name="app_name">TestNet</string>
     <string name="send">Send</string>
     <string name="signup">signup</string>
+    <string name="logout">Logout</string>
+    <string name="take_an_exam">Take an Exam</string>
+    <string name="my_grades">My Grades</string>
 </resources>
