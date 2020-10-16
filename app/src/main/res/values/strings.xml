@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TestNet</string>
+    <string name="send">Send</string>
+    <string name="signup">signup</string>
 </resources>
