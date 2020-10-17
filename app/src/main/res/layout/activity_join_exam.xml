@@ -6,4 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".JoinExamActivity">
 
+    <TextView
+        android:id="@+id/EnterExamIdTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:text="@string/enter_exam_id"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/EnterExamIdPT"
+        android:layout_width="331dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_exam_id"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EnterExamIdTV" />
+
+    <Button
+        android:id="@+id/startExamBtn"
+        android:layout_width="171dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="140dp"
+        android:onClick="sendBtnClicked"
+        android:text="@string/send"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
