@@ -5,4 +5,6 @@
     <string name="logout">Logout</string>
     <string name="take_an_exam">Take an Exam</string>
     <string name="my_grades">My Grades</string>
+    <string name="students_grades">Students\' Grades</string>
+    <string name="create_an_exam">Create an Exam</string>
 </resources>
