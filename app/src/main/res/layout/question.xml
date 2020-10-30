@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="370dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
+        android:text="question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/options"
+        android:layout_width="387dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <RadioButton
+            android:id="@+id/option1RB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="option1" />
+
+        <RadioButton
+            android:id="@+id/option2RB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="option2" />
+
+        <RadioButton
+            android:id="@+id/option3RB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="option3" />
+
+        <RadioButton
+            android:id="@+id/option4RB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="option4" />
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>
