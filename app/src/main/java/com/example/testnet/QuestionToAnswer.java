@@ -1,13 +1,13 @@
 package com.example.testnet;
 
-public class Question {
+public class QuestionToAnswer {
     private String question;
     private String firstOption;
     private String secondOption;
     private String thirdOption;
     private String fourthOption;
 
-    public Question(String question, String firstOption, String secondOption, String thirdOption, String fourthOption) {
+    public QuestionToAnswer(String question, String firstOption, String secondOption, String thirdOption, String fourthOption) {
         this.question = question;
         this.firstOption = firstOption;
         this.secondOption = secondOption;
