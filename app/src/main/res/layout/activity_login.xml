@@ -7,12 +7,50 @@
     android:orientation="vertical"
     tools:context=".LoginActivity" >
 
+    <TextView
+        android:id="@+id/loginUsernameTv"
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Username:"
+        android:layout_marginStart="20dp"
+        android:textSize="40sp" />
+
+    <EditText
+        android:id="@+id/loginUsernameEt"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginStart="20dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/loginPasswordTv"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:text="Password:"
+        android:textSize="40sp" />
+
+    <EditText
+        android:id="@+id/loginPasswordEt"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="" />
+
     <Button
         android:id="@+id/sendBtn"
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="100dp"
         android:onClick="sendBtnClicked"
         android:text="@string/send"
         android:textSize="30sp" />
