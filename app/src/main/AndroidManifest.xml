@@ -18,9 +18,9 @@
         <activity android:name=".StudentMenuActivity" />
         <activity android:name=".SingleStudentGradesActivity" />
         <activity android:name=".JoinExamActivity" />
-        <activity android:name=".ExamForResultsActivity" />
+        <activity android:name=".TakeExamActivity" />
         <activity android:name=".CreateExamActivity" />
-        <activity android:name=".TakeExamActivity" >
+        <activity android:name=".ExamForResultsActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
