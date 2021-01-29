@@ -10,9 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".StartActivity" />
+        <activity android:name=".LoginActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".LoginActivity" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".StartActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".TeacherMenuActivity" />
         <activity android:name=".StudentMenuActivity" />
@@ -20,13 +25,7 @@
         <activity android:name=".JoinExamActivity" />
         <activity android:name=".TakeExamActivity" />
         <activity android:name=".CreateExamActivity" />
-        <activity android:name=".ExamForResultsActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ExamForResultsActivity" />
         <activity android:name=".AllStudentsGradesActivity" />
 
     </application>

@@ -20,8 +20,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        this.usernameEt.findViewById(R.id.loginUsernameEt);
-        this.passwordEt.findViewById(R.id.loginPasswordEt);
+        this.usernameEt = findViewById(R.id.loginUsernameEt);
+        this.passwordEt = findViewById(R.id.loginPasswordEt);
     }
 
     public void sendBtnClicked(View view) {

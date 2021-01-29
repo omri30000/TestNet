@@ -22,25 +22,27 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/teacherBtn"
         android:layout_width="124dp"
         android:layout_height="56dp"
         android:layout_marginStart="56dp"
         android:layout_marginTop="64dp"
+        android:onClick="teacherBtnClicked"
         android:text="@string/teacher"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/studentBtn"
         android:layout_width="124dp"
         android:layout_height="56dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="64dp"
+        android:onClick="studentBtnClicked"
         android:text="@string/student"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.183"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/teacherBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -53,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/teacherBtn" />
 
     <EditText
         android:id="@+id/usernamePT"
