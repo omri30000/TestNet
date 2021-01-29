@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,28 +25,33 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void sendBtnClicked(View view) {
+        String username, password;
         try {
-            String username = String.valueOf(this.usernameEt.getText());
-            String password = String.valueOf(this.passwordEt.getText());
-
-
+            username = String.valueOf(this.usernameEt.getText());
+            password = String.valueOf(this.passwordEt.getText());
+            //todo: add details validation, consider using RegEx
         }
         catch (Exception e) {
-            this.usernameEt.setText("Invalid name or password");
+            Toast t = Toast.makeText(this, "Invalid name or password", Toast.LENGTH_SHORT);
+            t.show();
+            this.usernameEt.setText("");
+            this.passwordEt.setText("");
             return;
         }
-        //check in the database
 
-
+        //todo: find user in the database
 
         //move to students\teachers menu
-        Intent i = new Intent(LoginActivity.this, TeacherMenuActivity.class);
-        startActivity(i);
-
-        Intent j = new Intent(LoginActivity.this, StudentMenuActivity.class);
-        startActivity(j);
-
-
+        if (true) //todo: move to teacher/student according to the details from the database
+        {
+            Intent i = new Intent(LoginActivity.this, TeacherMenuActivity.class);
+            startActivity(i);
+        }
+        else
+        {
+            Intent j = new Intent(LoginActivity.this, StudentMenuActivity.class);
+            startActivity(j);
+        }
     }
 
     public void signupBtnClicked(View view) {
