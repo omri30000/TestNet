@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SignupActivity extends AppCompatActivity {
     private EditText usernameEt;
@@ -52,7 +53,12 @@ public class SignupActivity extends AppCompatActivity {
         password = this.passwordEt.getText().toString();
         email = this.emailEt.getText().toString();
 
-        if (!isDetailsValid()) return;
+        if (!isDetailsValid())
+        {
+            Toast t = Toast.makeText(this, "Invalid details", Toast.LENGTH_SHORT);
+            t.show();
+            return;
+        }
 
         User user = new User(username, password, email, this.userType);
 

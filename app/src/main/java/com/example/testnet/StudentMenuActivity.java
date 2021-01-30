@@ -14,9 +14,6 @@ public class StudentMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_student_menu);
     }
 
-
-
-
     public void takeExamClicked(View view) {
         Intent i = new Intent(StudentMenuActivity.this, JoinExamActivity.class);
         startActivity(i);
@@ -28,6 +25,7 @@ public class StudentMenuActivity extends AppCompatActivity {
     }
 
     public void logoutClicked(View view) {
-        //TODO: move back to login screen
+        Intent i = new Intent(StudentMenuActivity.this, LoginActivity.class);
+        startActivity(i);
     }
 }
