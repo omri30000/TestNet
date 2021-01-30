@@ -16,10 +16,14 @@ The activity will allow a teacher to choose an exam in order to watch his studen
 public class ExamForResultsActivity extends AppCompatActivity {
     private ArrayList<String> testsArr;
 
+    private String userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam_for_results);
+
+        this.userId = (String) getIntent().getExtras().get("userIdentifier");
 
         ListView testsLv = findViewById(R.id.ExForResultsLV);
         this.testsArr = new ArrayList<String>();
@@ -28,11 +32,14 @@ public class ExamForResultsActivity extends AppCompatActivity {
 
         ArrayAdapter<String> namesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, this.testsArr);
         testsLv.setAdapter(namesAdapter);
+
+        //todo: set on item clicked to the list view
+        //todo: i.putExtra("userIdentifier", this.userId); for item click
     }
 
     public void backBtnClicked(View view) {
         Intent i = new Intent(ExamForResultsActivity.this, TeacherMenuActivity.class);
-        //todo: i.putExtras()
+        i.putExtra("userIdentifier", this.userId);
         startActivity(i);
     }
 
