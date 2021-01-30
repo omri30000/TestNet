@@ -45,11 +45,13 @@ public class LoginActivity extends AppCompatActivity {
         if (true) //todo: move to teacher/student according to the details from the database
         {
             Intent i = new Intent(LoginActivity.this, TeacherMenuActivity.class);
+            i.putExtra("userIdentifier", "12345"); // todo: add the real userId here
             startActivity(i);
         }
         else
         {
             Intent j = new Intent(LoginActivity.this, StudentMenuActivity.class);
+            j.putExtra("userIdentifier", "12345"); // todo: add the real userId here
             startActivity(j);
         }
     }

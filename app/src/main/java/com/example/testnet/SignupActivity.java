@@ -68,11 +68,13 @@ public class SignupActivity extends AppCompatActivity {
         if (this.userType.equals("Student"))
         {
             Intent i = new Intent(SignupActivity.this, StudentMenuActivity.class);
+            i.putExtra("userIdentifier", "12345"); // todo: add the real userId here
             startActivity(i);
         }
         else if (this.userType.equals("Teacher"))
         {
             Intent i = new Intent(SignupActivity.this, TeacherMenuActivity.class);
+            i.putExtra("userIdentifier", "12345"); // todo: add the real userId here
             startActivity(i);
         }
     }
