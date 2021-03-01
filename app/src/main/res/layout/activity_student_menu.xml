@@ -10,11 +10,10 @@
         android:id="@+id/takeExamBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="412dp"
+        android:layout_marginTop="196dp"
         android:onClick="takeExamClicked"
         android:text="@string/take_an_exam"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +21,7 @@
         android:id="@+id/watchGradesBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:onClick="watchGradesClicked"
         android:text="@string/my_grades"
         app:layout_constraintEnd_toEndOf="parent"
