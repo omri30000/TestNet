@@ -63,4 +63,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer3Et" />
 
+    <Button
+        android:id="@+id/CreateQuestionBtn"
+        android:layout_width="335dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="12dp"
+        android:onClick="saveBtnClicked"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer4Et" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
