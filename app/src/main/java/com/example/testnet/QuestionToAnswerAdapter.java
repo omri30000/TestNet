@@ -13,12 +13,12 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class QuestionToAnswerAdapter extends ArrayAdapter<QuestionToAnswer> {
+public class QuestionToAnswerAdapter extends ArrayAdapter<Question> {
     private Context ctx;
     private int questionResourceId;
-    private List<QuestionToAnswer> data;
+    private List<Question> data;
 
-    public QuestionToAnswerAdapter(@NonNull Context context, int resource, @NonNull List<QuestionToAnswer> objects) {
+    public QuestionToAnswerAdapter(@NonNull Context context, int resource, @NonNull List<Question> objects) {
         super(context, resource, objects);
 
         this.ctx = (TakeExamActivity) context;
@@ -33,7 +33,7 @@ public class QuestionToAnswerAdapter extends ArrayAdapter<QuestionToAnswer> {
 
         View v = li.inflate(this.questionResourceId, null);
 
-        QuestionToAnswer q = this.data.get(position);
+        Question q = this.data.get(position);
 
         TextView questionTv = v.findViewById(R.id.questionTV);
         questionTv.setText(q.getQuestion());

@@ -34,6 +34,7 @@
         android:layout_width="56dp"
         android:layout_height="49dp"
         android:layout_marginBottom="24dp"
+        android:onClick="addQuestionBtnClicked"
         android:text="@string/plus"
         android:textSize="24sp"
         android:textStyle="bold"

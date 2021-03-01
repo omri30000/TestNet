@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class TakeExamActivity extends AppCompatActivity {
     private ListView questionsLv;
-    private ArrayList<QuestionToAnswer> questionArr;
+    private ArrayList<Question> questionArr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class TakeExamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_take_exam);
 
         this.questionsLv = findViewById(R.id.takeQuestionsLV);
-        this.questionArr = new ArrayList<QuestionToAnswer>();
+        this.questionArr = new ArrayList<Question>();
 
         getQuestionData();
 
@@ -34,16 +34,16 @@ public class TakeExamActivity extends AppCompatActivity {
     }
 
     public void getQuestionData(){
-        QuestionToAnswer q = new QuestionToAnswer("aaa", "1", "2","3","4");
+        Question q = new Question("aaa", "1", "2","3","4");
         this.questionArr.add(q);
 
-        q = new QuestionToAnswer("bbb", "1", "2","3","4");
+        q = new Question("bbb", "1", "2","3","4");
         this.questionArr.add(q);
 
-        q = new QuestionToAnswer("ccc", "1", "2","3","4");
+        q = new Question("ccc", "1", "2","3","4");
         this.questionArr.add(q);
 
-        q = new QuestionToAnswer("ddd", "1", "2","3","4");
+        q = new Question("ddd", "1", "2","3","4");
         this.questionArr.add(q);
     }
 }
