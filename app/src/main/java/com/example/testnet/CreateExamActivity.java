@@ -48,9 +48,10 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
     public void createQuestionDialog()
     {
         this.d = new Dialog(this);
-        d.setContentView(R.layout.question_to_create);
-        d.setTitle("Create new question");
-        d.setCancelable(true);
+
+        this.d.setTitle("Create question");
+        this.d.setContentView(R.layout.question_to_create);
+        this.d.setCancelable(true);
 
         this.quest = this.d.findViewById(R.id.questionEt);
         this.ans1 = this.d.findViewById(R.id.answer1Et);
