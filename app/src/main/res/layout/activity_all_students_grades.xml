@@ -18,4 +18,25 @@
         app:layout_constraintHorizontal_bias="0.885"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/examNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Exam Name"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/allGradesLV"
+        android:layout_width="332dp"
+        android:layout_height="470dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/examNameTV" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,11 +10,10 @@
         android:id="@+id/createExamBtn"
         android:layout_width="193dp"
         android:layout_height="50dp"
-        android:layout_marginTop="412dp"
+        android:layout_marginTop="212dp"
         android:onClick="createExamClicked"
         android:text="@string/create_an_exam"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
