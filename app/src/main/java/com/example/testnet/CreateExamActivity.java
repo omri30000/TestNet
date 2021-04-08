@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class CreateExamActivity extends AppCompatActivity implements View.OnClickListener{
 
     private String userId;
@@ -29,6 +31,8 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
     private EditText ans4;
     private Button addQuestionBtn;
 
+    private ArrayList<Question> questions;
+
     Dialog d;
 
     @Override
@@ -43,6 +47,8 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
 
         this.saveBtn.setOnClickListener(this);
         this.plusBtn.setOnClickListener(this);
+
+        this.questions = new ArrayList<Question>();
     }
 
     public void createQuestionDialog()
@@ -80,18 +86,17 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
         }
         else if (v == addQuestionBtn)
         {
-            Question q = new Question(
+            this.questions.add(new Question(
                     this.quest.getText().toString(),
                     this.ans1.getText().toString(),
                     this.ans2.getText().toString(),
                     this.ans3.getText().toString(),
                     this.ans4.getText().toString()
-            );
-            //todo: add this to question array list
+            ));
 
             d.dismiss();
 
-            Toast.makeText(this, q.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.questions.get(this.questions.size()-1).toString(), Toast.LENGTH_SHORT).show();
         }
     }
 }
