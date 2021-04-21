@@ -16,7 +16,7 @@ public class SignupActivity extends AppCompatActivity {
     private Button teacherBtn;
     private Button studentBtn;
 
-    private FirebaseManager fbManager;
+    private IDBManager fbManager;
     private String userType;
 
     @Override
