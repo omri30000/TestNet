@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText usernameEt;
@@ -60,5 +63,6 @@ public class LoginActivity extends AppCompatActivity {
         //move to signup activity
         Intent i = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(i);
+
     }
 }

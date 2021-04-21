@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "90637635468",
+    "firebase_url": "https://testnet-9ee06-default-rtdb.firebaseio.com",
+    "project_id": "testnet-9ee06",
+    "storage_bucket": "testnet-9ee06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90637635468:android:49ac6b111c98d8480ad0a9",
+        "android_client_info": {
+          "package_name": "com.example.testnet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90637635468-fsd7v5bifg72djt6dcut884lmn9vjjs1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGGP4Hgn7rS5fvm34_23LnzfJiqbHpkW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90637635468-fsd7v5bifg72djt6dcut884lmn9vjjs1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
