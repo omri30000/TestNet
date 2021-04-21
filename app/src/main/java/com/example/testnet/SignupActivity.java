@@ -16,6 +16,7 @@ public class SignupActivity extends AppCompatActivity {
     private Button teacherBtn;
     private Button studentBtn;
 
+    private FirebaseManager fbManager;
     private String userType;
 
     @Override
@@ -30,6 +31,7 @@ public class SignupActivity extends AppCompatActivity {
         this.teacherBtn = findViewById(R.id.teacherBtn);
         this.studentBtn = findViewById(R.id.studentBtn);
 
+        this.fbManager = new FirebaseManager();
         this.userType = "None";
     }
 
@@ -53,16 +55,14 @@ public class SignupActivity extends AppCompatActivity {
         password = this.passwordEt.getText().toString();
         email = this.emailEt.getText().toString();
 
-        if (!isDetailsValid())
+        try{
+            this.fbManager.insertUser(new User(username, password, email, this.userType));
+        }
+        catch (Exception exception)
         {
-            Toast t = Toast.makeText(this, "Invalid details", Toast.LENGTH_SHORT);
-            t.show();
+            Toast.makeText(this, "Invalid details", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        User user = new User(username, password, email, this.userType);
-
-        //todo: write this user to the database
 
         //move to students\teachers menu
         if (this.userType.equals("Student"))
