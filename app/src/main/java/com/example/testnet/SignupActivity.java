@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SignupActivity extends AppCompatActivity {
     private EditText usernameEt;
     private EditText passwordEt;
@@ -16,7 +19,7 @@ public class SignupActivity extends AppCompatActivity {
     private Button teacherBtn;
     private Button studentBtn;
 
-    private IDBManager fbManager;
+    private DatabaseReference myRef;
     private String userType;
 
     @Override
@@ -31,7 +34,7 @@ public class SignupActivity extends AppCompatActivity {
         this.teacherBtn = findViewById(R.id.teacherBtn);
         this.studentBtn = findViewById(R.id.studentBtn);
 
-        this.fbManager = new FirebaseManager();
+        this.myRef = FirebaseDatabase.getInstance().getReference();
         this.userType = "None";
     }
 
@@ -49,17 +52,23 @@ public class SignupActivity extends AppCompatActivity {
         this.userType = "Teacher";
     }
 
+    /**
+     * The function will insert a new user to the database and move him to the menu
+     * @param view the button from which the click came
+     */
     public void sendBtnClicked(View view) {
         String username, password, email, userIdentifier;
         username = this.usernameEt.getText().toString();
         password = this.passwordEt.getText().toString();
         email = this.emailEt.getText().toString();
 
-        try{
-            userIdentifier = this.fbManager.insertUser(new User(username, password, email, this.userType));
+        User user = new User(username, password, email, this.userType);
+
+        if (isDetailsValid(user)){
+            userIdentifier = this.myRef.child("users").push().getKey();
+            this.myRef.child("users").child(userIdentifier).setValue(user);
         }
-        catch (Exception exception)
-        {
+        else{
             Toast.makeText(this, "Invalid details", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -85,7 +94,7 @@ public class SignupActivity extends AppCompatActivity {
      * The method will check if the user's input is valid
      * @return true or false according to the user's input's validity
      */
-    private boolean isDetailsValid() {
+    private boolean isDetailsValid(User user) {
         if (this.userType.equals("None")) return false;
         //todo: check given values of username, password, email (maybe with RegEx?)
         return true;
