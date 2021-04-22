@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         q.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String userIdentifier;
+                String userIdentifier = "null";
                 for (DataSnapshot dst : dataSnapshot.getChildren()) {
                     User user = dst.getValue(User.class);
 
@@ -86,7 +86,9 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
 
-                Toast.makeText(LoginActivity.this, "user doesn't exist", Toast.LENGTH_SHORT).show();
+                if (userIdentifier.equals("null")){
+                    Toast.makeText(LoginActivity.this, "user doesn't exist", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
