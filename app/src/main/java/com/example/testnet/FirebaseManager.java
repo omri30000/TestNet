@@ -1,7 +1,13 @@
 package com.example.testnet;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class FirebaseManager implements IDBManager{
 
@@ -19,19 +25,18 @@ public class FirebaseManager implements IDBManager{
      * The function will insert a new user to the database
      * @param user the new user to be inserted
      * @throws Exception might be thrown if the user's details are invalid
+     * @return the new user's identifier as it appears in the database
      */
-    public void insertUser(User user) throws Exception {
+    public String insertUser(User user) throws Exception {
+        String userIdentifier = "";
         if (isUserDetailsValid(user)){
-            myRef.child("users").push().setValue(user);
+            userIdentifier = this.myRef.child("users").push().getKey();
+            this.myRef.child("users").child(userIdentifier).setValue(user);
         }
         else{
             throw new Exception("Couldn't insert user to the database");
         }
-    }
-
-    public String authenticate()
-    {
-        return "";
+        return userIdentifier;
     }
 
     public User getUserFromId(String userId)
@@ -47,5 +52,33 @@ public class FirebaseManager implements IDBManager{
     public boolean isUserDetailsValid(User user){
         //todo: check given values of username, password, email (maybe with RegEx?)
         return true;
+    }
+
+    /**
+     * The method will check whether a user is registered as a student or a teacher
+     * @param identifier is the user identifier in the database
+     * @return the user's type ("Student"/"Teacher")
+     */
+    public String getUserType(String identifier) throws Exception{
+        final String[] userType = new String[1];
+        final boolean[] isValid = new boolean[1];
+        isValid[0] = true;
+
+        this.myRef.child("users").child(identifier).child("userType")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        userType[0] = snapshot.getValue(String.class);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        isValid[0] = false;
+                    }
+                });
+
+        if (!isValid[0]) throw new Exception("user identifier doesn't exist");
+
+        return userType[0];
     }
 }

@@ -50,13 +50,13 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void sendBtnClicked(View view) {
-        String username, password, email;
+        String username, password, email, userIdentifier;
         username = this.usernameEt.getText().toString();
         password = this.passwordEt.getText().toString();
         email = this.emailEt.getText().toString();
 
         try{
-            this.fbManager.insertUser(new User(username, password, email, this.userType));
+            userIdentifier = this.fbManager.insertUser(new User(username, password, email, this.userType));
         }
         catch (Exception exception)
         {
@@ -64,17 +64,19 @@ public class SignupActivity extends AppCompatActivity {
             return;
         }
 
+        ((Config)getApplication()).setUserIdentifier(userIdentifier);
+
         //move to students\teachers menu
         if (this.userType.equals("Student"))
         {
             Intent i = new Intent(SignupActivity.this, StudentMenuActivity.class);
-            i.putExtra("userIdentifier", "12345"); // todo: add the real userId here
+            i.putExtra("userIdentifier", userIdentifier); // todo: remove this and use Config instead
             startActivity(i);
         }
         else if (this.userType.equals("Teacher"))
         {
             Intent i = new Intent(SignupActivity.this, TeacherMenuActivity.class);
-            i.putExtra("userIdentifier", "12345"); // todo: add the real userId here
+            i.putExtra("userIdentifier", userIdentifier); // todo: remove this and use Config instead
             startActivity(i);
         }
     }

@@ -31,6 +31,7 @@ public class StudentMenuActivity extends AppCompatActivity {
     }
 
     public void logoutClicked(View view) {
+        ((Config)getApplication()).setUserIdentifier("null");
         Intent i = new Intent(StudentMenuActivity.this, LoginActivity.class);
         startActivity(i);
     }
