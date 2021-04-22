@@ -15,14 +15,10 @@ import java.util.ArrayList;
 public class SingleStudentGradesActivity extends AppCompatActivity {
     private ArrayList<String> testsArr;
 
-    private String userId;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_student_grades);
-
-        this.userId = (String) getIntent().getExtras().get("userIdentifier");
 
         ListView testsLv = findViewById(R.id.SingleStudentGradesLV);
         this.testsArr = new ArrayList<String>();
@@ -43,7 +39,6 @@ public class SingleStudentGradesActivity extends AppCompatActivity {
 
     public void backBtnClicked(View view) {
         Intent i = new Intent(SingleStudentGradesActivity.this, StudentMenuActivity.class);
-        i.putExtra("userIdentifier", this.userId);
         startActivity(i);
     }
 

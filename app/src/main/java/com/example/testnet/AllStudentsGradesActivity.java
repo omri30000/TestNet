@@ -20,7 +20,6 @@ public class AllStudentsGradesActivity extends AppCompatActivity {
 
     private ArrayList<String> namesArr;
 
-    private String userId;
     private String examName;
 
     @Override
@@ -28,7 +27,6 @@ public class AllStudentsGradesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_students_grades);
 
-        this.userId = (String) getIntent().getExtras().get("userIdentifier");
         this.examName = (String) getIntent().getExtras().get("examName");
 
         TextView titleTv = findViewById(R.id.examNameTV);
@@ -54,7 +52,6 @@ public class AllStudentsGradesActivity extends AppCompatActivity {
 
     public void backBtnClicked(View view) {
         Intent i = new Intent(AllStudentsGradesActivity.this, ExamForResultsActivity.class);
-        i.putExtra("userIdentifier", this.userId);
         startActivity(i);
     }
 

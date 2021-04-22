@@ -17,14 +17,10 @@ The activity will allow a teacher to choose an exam in order to watch his studen
 public class ExamForResultsActivity extends AppCompatActivity {
     private ArrayList<String> testsArr;
 
-    private String userId;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam_for_results);
-
-        this.userId = (String) getIntent().getExtras().get("userIdentifier");
 
         ListView testsLv = findViewById(R.id.ExForResultsLV);
         this.testsArr = new ArrayList<String>();
@@ -38,7 +34,6 @@ public class ExamForResultsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(ExamForResultsActivity.this, AllStudentsGradesActivity.class);
-                i.putExtra("userIdentifier", userId);
                 i.putExtra("examName", testsArr.get(position));
                 startActivity(i);
             }
@@ -48,7 +43,6 @@ public class ExamForResultsActivity extends AppCompatActivity {
 
     public void backBtnClicked(View view) {
         Intent i = new Intent(ExamForResultsActivity.this, TeacherMenuActivity.class);
-        i.putExtra("userIdentifier", this.userId);
         startActivity(i);
     }
 

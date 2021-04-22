@@ -13,14 +13,10 @@ public class JoinExamActivity extends AppCompatActivity {
     private EditText examIdEt;
     private Button sendBtn;
 
-    private String userId;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_exam);
-
-        this.userId = (String) getIntent().getExtras().get("userIdentifier");
 
         this.examIdEt = findViewById(R.id.EnterExamIdPT);
         this.sendBtn = findViewById(R.id.startExamBtn);
@@ -38,7 +34,6 @@ public class JoinExamActivity extends AppCompatActivity {
         }
 
         Intent i = new Intent(JoinExamActivity.this, TakeExamActivity.class);
-        i.putExtra("userIdentifier", this.userId);
         i.putExtra("examId", examId);
         startActivity(i);
     }

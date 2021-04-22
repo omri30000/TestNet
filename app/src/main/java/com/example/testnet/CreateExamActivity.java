@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class CreateExamActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private String userId;
     private String m_Text;
 
     private Button saveBtn;
@@ -39,8 +38,6 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_exam);
-
-        this.userId = (String) getIntent().getExtras().get("userIdentifier");
 
         this.saveBtn = findViewById(R.id.saveBtn);
         this.plusBtn = findViewById(R.id.addQuestionBtn);
@@ -77,7 +74,6 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
         {
             //todo: save questions to database
             Intent i = new Intent(CreateExamActivity.this, TeacherMenuActivity.class);
-            i.putExtra("userIdentifier", this.userId);
             startActivity(i);
         }
         else if (v == plusBtn)

@@ -29,7 +29,6 @@ public class TakeExamActivity extends AppCompatActivity {
 
     public void submitBtnClicked(View view) {
         Intent i = new Intent(TakeExamActivity.this, StudentMenuActivity.class);
-        //todo: i.putExtras()
         startActivity(i);
     }
 
