@@ -39,16 +39,16 @@ public class QuestionToViewAdapter extends ArrayAdapter<Question> {
         questionTv.setText(q.getQuestion());
 
         TextView firstOptionTv = v.findViewById(R.id.answer1TV);
-        firstOptionTv.setText(q.getFirstOption());
+        firstOptionTv.setText(String.format(" - %s", q.getFirstOption()));
 
         TextView secondOptionTv = v.findViewById(R.id.answer2TV);
-        secondOptionTv.setText(q.getSecondOption());
+        secondOptionTv.setText(String.format(" - %s", q.getSecondOption()));
 
         TextView thirdOptionTv = v.findViewById(R.id.answer3TV);
-        thirdOptionTv.setText(q.getThirdOption());
+        thirdOptionTv.setText(String.format(" - %s", q.getThirdOption()));
 
         TextView fourthOptionTv = v.findViewById(R.id.answer4TV);
-        fourthOptionTv.setText(q.getFourthOption());
+        fourthOptionTv.setText(String.format(" - %s", q.getFourthOption()));
 
         return v;
     }
