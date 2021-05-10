@@ -12,7 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -31,6 +35,9 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
     private Button addQuestionBtn;
 
     private ArrayList<Question> questions;
+    private ListView questionsLv;
+
+    private DatabaseReference myRef;
 
     Dialog d;
 
@@ -39,8 +46,11 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_exam);
 
+        this.myRef = FirebaseDatabase.getInstance().getReference();
+
         this.saveBtn = findViewById(R.id.saveBtn);
         this.plusBtn = findViewById(R.id.addQuestionBtn);
+        this.questionsLv = findViewById(R.id.questionsLV);
 
         this.saveBtn.setOnClickListener(this);
         this.plusBtn.setOnClickListener(this);
@@ -72,7 +82,12 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
     {
         if (v==saveBtn)
         {
-            //todo: save questions to database
+            String userId = ((Config)getApplication()).getUserIdentifier();
+            String examId = this.myRef.child("users").push().getKey();
+
+            this.myRef.child("exams").child(examId).child("creator").setValue(userId);
+            this.myRef.child("exams").child(examId).child("questions").setValue(this.questions);
+
             Intent i = new Intent(CreateExamActivity.this, TeacherMenuActivity.class);
             startActivity(i);
         }
@@ -92,7 +107,13 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
 
             d.dismiss();
 
-            Toast.makeText(this, this.questions.get(this.questions.size()-1).toString(), Toast.LENGTH_SHORT).show();
+            this.refreshList();
+            //Toast.makeText(this, this.questions.get(this.questions.size()-1).toString(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void refreshList(){
+        QuestionToViewAdapter questionAdapter = new QuestionToViewAdapter(this, R.layout.question_to_view, this.questions);
+        this.questionsLv.setAdapter(questionAdapter);
     }
 }

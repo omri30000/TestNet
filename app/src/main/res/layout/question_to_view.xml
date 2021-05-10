@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/questionToViewTV"
+        android:layout_width="327dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="32dp"
+        android:text="question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/answer1TV"
+        android:layout_width="327dp"
+        android:layout_height="43dp"
+        android:text="answer1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionToViewTV" />
+
+    <TextView
+        android:id="@+id/answer2TV"
+        android:layout_width="327dp"
+        android:layout_height="43dp"
+        android:text="answer2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer1TV" />
+
+    <TextView
+        android:id="@+id/answer3TV"
+        android:layout_width="327dp"
+        android:layout_height="43dp"
+        android:text="answer3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer2TV" />
+
+    <TextView
+        android:id="@+id/answer4TV"
+        android:layout_width="327dp"
+        android:layout_height="43dp"
+        android:text="answer4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer3TV" />
+</androidx.constraintlayout.widget.ConstraintLayout>
