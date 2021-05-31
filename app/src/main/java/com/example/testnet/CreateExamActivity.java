@@ -22,8 +22,6 @@ import java.util.ArrayList;
 
 public class CreateExamActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private int grade;
-
     private Button saveBtn;
     private Button plusBtn;
 
@@ -35,7 +33,6 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
     private Button addQuestionBtn;
 
     private ArrayList<Question> questions;
-    private ArrayList<String> answers;
     private ListView questionsLv;
 
     private DatabaseReference myRef;

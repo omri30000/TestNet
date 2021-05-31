@@ -19,8 +19,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class TakeExamActivity extends AppCompatActivity {
+
     private ListView questionsLv;
     private ArrayList<Question> questionArr;
+    private ArrayList<String> answers;
+
     private String examId;
 
     private DatabaseReference myRef;
@@ -37,11 +40,17 @@ public class TakeExamActivity extends AppCompatActivity {
 
         this.questionsLv = findViewById(R.id.takeQuestionsLV);
         this.questionArr = new ArrayList<Question>();
+        this.answers = new ArrayList<String>();
 
         getQuestionData();
     }
 
     public void submitBtnClicked(View view) {
+
+        //todo: fill answers array
+        int grade = calculateGrade();
+        //todo: add grade to firebase
+
         Intent i = new Intent(TakeExamActivity.this, StudentMenuActivity.class);
         startActivity(i);
     }
@@ -69,5 +78,20 @@ public class TakeExamActivity extends AppCompatActivity {
     public void startExam(){
         QuestionToAnswerAdapter questionAdapter = new QuestionToAnswerAdapter(this, R.layout.question_to_answer, this.questionArr);
         this.questionsLv.setAdapter(questionAdapter);
+    }
+
+    /**
+     * The method will calculate the student's grade in the exam
+     * @return the student's grade
+     */
+    public int calculateGrade(){
+        //todo: make sure the calculation works
+        int count = 0;
+
+        for(int i = 0; i < this.questionArr.size(); i++){
+            if (this.questionArr.get(i).isAnswerCorrect(this.answers.get(i))) count++;
+        }
+
+        return (count * 100) / this.questionArr.size();
     }
 }
