@@ -38,6 +38,8 @@ public class QuestionToAnswerAdapter extends ArrayAdapter<Question> {
         TextView questionTv = v.findViewById(R.id.questionTV);
         questionTv.setText(q.getQuestion());
 
+
+        //todo: shuffle answers
         RadioButton firstOptionRb = v.findViewById(R.id.option1RB);
         firstOptionRb.setText(q.getFirstOption());
 

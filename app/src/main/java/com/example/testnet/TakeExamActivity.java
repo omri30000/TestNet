@@ -37,11 +37,8 @@ public class TakeExamActivity extends AppCompatActivity {
 
         this.questionsLv = findViewById(R.id.takeQuestionsLV);
         this.questionArr = new ArrayList<Question>();
-        this.questionsLv.setAdapter(null);
-        getQuestionData();
 
-//        QuestionToAnswerAdapter questionAdapter = new QuestionToAnswerAdapter(this, R.layout.question_to_answer, this.questionArr);
-//        this.questionsLv.setAdapter(questionAdapter);
+        getQuestionData();
     }
 
     public void submitBtnClicked(View view) {

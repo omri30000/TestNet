@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class CreateExamActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private String m_Text;
+    private int grade;
 
     private Button saveBtn;
     private Button plusBtn;
@@ -35,6 +35,7 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
     private Button addQuestionBtn;
 
     private ArrayList<Question> questions;
+    private ArrayList<String> answers;
     private ListView questionsLv;
 
     private DatabaseReference myRef;
@@ -116,4 +117,6 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
         QuestionToViewAdapter questionAdapter = new QuestionToViewAdapter(this, R.layout.question_to_view, this.questions);
         this.questionsLv.setAdapter(questionAdapter);
     }
+
+
 }

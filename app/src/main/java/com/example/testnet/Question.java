@@ -57,6 +57,14 @@ public class Question {
         this.fourthOption = fourthOption;
     }
 
+    /**
+     * The method will determine whether a given answer is correct (assuming that the first option is correct)
+     * @param answer is the given answer to check
+     * @return true or false if the answer is correct or incorrect
+     */
+    public boolean isAnswerCorrect(String answer){
+        return answer.equals(this.firstOption);
+    }
     @Override
     public String toString() {
         return "Question{" +
