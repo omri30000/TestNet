@@ -7,6 +7,8 @@ public class Question {
     private String thirdOption;
     private String fourthOption;
 
+    public Question() {}
+
     public Question(String question, String firstOption, String secondOption, String thirdOption, String fourthOption) {
         this.question = question;
         this.firstOption = firstOption;
