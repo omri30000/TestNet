@@ -1,5 +1,6 @@
 package com.example.testnet;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,31 +11,35 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class SingleStudentGradesActivity extends AppCompatActivity {
     private ArrayList<String> testsArr;
+    private ArrayList<String> gradesArr;
+    private ListView testsLv;
+
+    private DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_student_grades);
 
-        ListView testsLv = findViewById(R.id.SingleStudentGradesLV);
+        this.myRef = FirebaseDatabase.getInstance().getReference();
+
+        this.testsLv = findViewById(R.id.SingleStudentGradesLV);
         this.testsArr = new ArrayList<String>();
+        this.gradesArr = new ArrayList<String>();
 
         fillExamsNames();
 
-        ArrayAdapter<String> namesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, this.testsArr);
-        testsLv.setAdapter(namesAdapter);
-
-        testsLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //todo: get grade from the database
-                Toast.makeText(SingleStudentGradesActivity.this, "Your grade is: 100", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     public void backBtnClicked(View view) {
@@ -43,16 +48,34 @@ public class SingleStudentGradesActivity extends AppCompatActivity {
     }
 
     public void fillExamsNames(){
-        String s = "Exam 1";
-        this.testsArr.add(s);
+        Query q = this.myRef.child("users").child(((Config)getApplication()).getUserIdentifier()).child("grades").orderByKey();
 
-        s = "Exam 2";
-        this.testsArr.add(s);
+        q.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dst : dataSnapshot.getChildren()) {
+                    testsArr.add(dst.getKey());
+                    gradesArr.add(dst.getValue(String.class));
+                }
+                fillGradesList();
+            }
 
-        s = "Exam 3";
-        this.testsArr.add(s);
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
 
-        s = "Exam 4";
-        this.testsArr.add(s);
+    public void fillGradesList(){
+        ArrayAdapter<String> namesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, this.testsArr);
+        this.testsLv.setAdapter(namesAdapter);
+
+        testsLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //todo: get grade from the database
+                Toast.makeText(SingleStudentGradesActivity.this, "Your grade is: " + gradesArr.get(position), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

@@ -46,10 +46,27 @@ public class TakeExamActivity extends AppCompatActivity {
     }
 
     public void submitBtnClicked(View view) {
+        QuestionToAnswerAdapter adapter = (QuestionToAnswerAdapter) this.questionsLv.getAdapter();
+        int questionsAmount = adapter.getCount();
 
-        //todo: fill answers array
+        //fill answers array
+        for (int i = 0; i < questionsAmount; i++){
+            View v = this.questionsLv.getChildAt(i).findViewById(R.id.optionsRG);
+            try {
+                this.answers.add(adapter.getAnswer(v));
+            }
+            catch (Exception e){
+                Toast.makeText(this, "You must answer all questions!", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+
+
         int grade = calculateGrade();
-        //todo: add grade to firebase
+
+        //add grade to firebase
+        this.myRef.child("users").child(((Config)getApplication()).getUserIdentifier()).child("grades").child(examId).setValue(String.valueOf(grade));
 
         Intent i = new Intent(TakeExamActivity.this, StudentMenuActivity.class);
         startActivity(i);

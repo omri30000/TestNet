@@ -59,4 +59,29 @@ public class QuestionToAnswerAdapter extends ArrayAdapter<Question> {
     public int getCount() {
         return this.data.size();
     }
+
+    /**
+     * The method will get a view represents an answered question and return the given answer as a string
+     * @param v is the question's representation (RadioGroup)
+     * @return the answer as a string
+     */
+    public String getAnswer(View v) throws Exception {
+        RadioButton temp = v.findViewById(R.id.option1RB);
+        if (temp.isChecked()){
+            return temp.getText().toString();
+        }
+        temp = v.findViewById(R.id.option2RB);
+        if (temp.isChecked()){
+            return temp.getText().toString();
+        }
+        temp = v.findViewById(R.id.option3RB);
+        if (temp.isChecked()){
+            return temp.getText().toString();
+        }
+        temp = v.findViewById(R.id.option4RB);
+        if (temp.isChecked()){
+            return temp.getText().toString();
+        }
+        throw new Exception("No answer was checked!");
+    }
 }
