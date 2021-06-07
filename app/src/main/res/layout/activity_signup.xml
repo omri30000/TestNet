@@ -9,37 +9,40 @@
 
     <Button
         android:id="@+id/signupSendBtn"
+        style="@style/ButtonStyle"
         android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="36dp"
         android:onClick="sendBtnClicked"
         android:text="@string/send"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="@+id/emailPT"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="@+id/emailPT"
         app:layout_constraintTop_toBottomOf="@+id/emailPT" />
 
     <Button
-        android:id="@+id/teacherBtn"
-        android:layout_width="92dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="64dp"
-        android:onClick="teacherBtnClicked"
-        android:text="@string/teacher"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/studentBtn"
+        style="@style/ButtonStyle"
         android:layout_width="92dp"
         android:layout_height="40dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="84dp"
         android:onClick="studentBtnClicked"
         android:text="@string/student"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/teacherBtn"
+        style="@style/ButtonStyle"
+        android:layout_width="92dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="28dp"
+        android:onClick="teacherBtnClicked"
+        android:text="@string/teacher"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

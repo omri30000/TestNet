@@ -20,8 +20,8 @@
 
     <EditText
         android:id="@+id/EnterExamIdPT"
-        android:layout_width="331dp"
-        android:layout_height="46dp"
+        android:layout_width="324dp"
+        android:layout_height="41dp"
         android:layout_marginTop="20dp"
         android:autofillHints=""
         android:ems="10"
@@ -33,14 +33,15 @@
 
     <Button
         android:id="@+id/startExamBtn"
-        android:layout_width="171dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="140dp"
+        style="@style/ButtonStyle"
+        android:layout_width="152dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="128dp"
         android:onClick="sendBtnClicked"
         android:text="@string/send"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EnterExamIdPT" />
 </androidx.constraintlayout.widget.ConstraintLayout>

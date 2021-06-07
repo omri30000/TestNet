@@ -8,6 +8,7 @@
 
     <Button
         android:id="@+id/saveBtn"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -31,6 +32,7 @@
 
     <Button
         android:id="@+id/addQuestionBtn"
+        style="@style/ButtonStyle"
         android:layout_width="56dp"
         android:layout_height="49dp"
         android:layout_marginBottom="24dp"

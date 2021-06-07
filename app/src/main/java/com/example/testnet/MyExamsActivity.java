@@ -55,7 +55,7 @@ public class MyExamsActivity extends AppCompatActivity {
                 ClipData clip = ClipData.newPlainText("exam id", testsIDsArr.get(position));
                 assert clipboard != null;
                 clipboard.setPrimaryClip(clip);
-                
+
                 Toast.makeText(MyExamsActivity.this, "exam ID was copied to clipboard", Toast.LENGTH_SHORT).show();
             }
         });
@@ -78,6 +78,7 @@ public class MyExamsActivity extends AppCompatActivity {
                     testsNamesArr.add(dst.getKey());
                     testsIDsArr.add(String.valueOf(dst.getValue()));
                 }
+
                 setListView();
             }
 
