@@ -19,8 +19,8 @@ public class TeacherMenuActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void watchGradesClicked(View view) {
-        Intent i = new Intent(TeacherMenuActivity.this, ExamForResultsActivity.class);
+    public void myExamsClicked(View view) {
+        Intent i = new Intent(TeacherMenuActivity.this, MyExamsActivity.class);
         startActivity(i);
     }
 

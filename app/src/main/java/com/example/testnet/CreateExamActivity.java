@@ -86,9 +86,13 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
             String examId = this.myRef.child("users").push().getKey();
             String examName = String.valueOf(this.examNameET.getText());
 
+            //add exam to exams list in firebase
             this.myRef.child("exams").child(examId).child("creator").setValue(userId);
             this.myRef.child("exams").child(examId).child("name").setValue(examName);
             this.myRef.child("exams").child(examId).child("questions").setValue(this.questions);
+
+            //add exam in his creator record
+            this.myRef.child("users").child(userId).child("exams").child(examName).setValue(examId);
 
             Intent i = new Intent(CreateExamActivity.this, TeacherMenuActivity.class);
             startActivity(i);

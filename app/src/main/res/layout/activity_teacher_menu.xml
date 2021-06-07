@@ -19,14 +19,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/myExamBtn"
         style="@style/ButtonStyle"
-        android:id="@+id/watchStudGradesBtn"
         android:layout_width="135dp"
         android:layout_height="38dp"
         android:layout_marginTop="32dp"
-        android:onClick="watchGradesClicked"
+        android:onClick="myExamsClicked"
         android:shadowColor="@color/colorAccent"
-        android:text="@string/students_grades"
+        android:text="My Exams"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createExamBtn" />
