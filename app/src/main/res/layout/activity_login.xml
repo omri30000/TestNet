@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/loginUsernameTv"
-        android:layout_width="349dp"
+        android:layout_width="314dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
@@ -29,7 +29,7 @@
 
     <TextView
         android:id="@+id/loginPasswordTv"
-        android:layout_width="344dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"

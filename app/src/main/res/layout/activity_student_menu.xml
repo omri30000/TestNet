@@ -9,8 +9,8 @@
     <Button
         android:id="@+id/takeExamBtn"
         style="@style/ButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="112dp"
+        android:layout_height="41dp"
         android:layout_marginTop="196dp"
         android:onClick="takeExamClicked"
         android:text="@string/take_an_exam"
@@ -21,8 +21,8 @@
     <Button
         android:id="@+id/watchGradesBtn"
         style="@style/ButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="37dp"
         android:layout_marginTop="28dp"
         android:onClick="watchGradesClicked"
         android:text="@string/my_grades"
@@ -33,14 +33,14 @@
     <Button
         android:id="@+id/studentMenuLogoutBtn"
         style="@style/ButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="84dp"
+        android:layout_height="35dp"
         android:layout_marginBottom="44dp"
         android:onClick="logoutClicked"
         android:text="@string/logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,10 +7,11 @@
     <string name="my_grades">My Grades</string>
     <string name="students_grades">Students\' Grades</string>
     <string name="create_an_exam">Create an Exam</string>
-    <string name="enter_exam_id">Enter exam ID:</string>
+    <string name="enter_exam_id">Enter exam ID</string>
     <string name="submit">Submit</string>
     <string name="save">Save</string>
     <string name="back">Back</string>
+    <string name="start">Start</string>
     <string name="teacher">Teacher</string>
     <string name="student">Student</string>
     <string name="username">Username</string>

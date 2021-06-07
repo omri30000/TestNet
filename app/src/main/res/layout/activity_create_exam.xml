@@ -20,15 +20,15 @@
 
     <ListView
         android:id="@+id/questionsLV"
-        android:layout_width="419dp"
-        android:layout_height="524dp"
+        android:layout_width="298dp"
+        android:layout_height="427dp"
         android:layout_marginEnd="2dp"
         app:layout_constraintBottom_toTopOf="@+id/saveBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/examNamePT"
-        app:layout_constraintVertical_bias="0.304" />
+        app:layout_constraintVertical_bias="0.081" />
 
     <Button
         android:id="@+id/addQuestionBtn"
@@ -53,7 +53,7 @@
         android:hint="Enter exam name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
