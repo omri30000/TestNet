@@ -33,6 +33,7 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
     private Button addQuestionBtn;
 
     private ArrayList<Question> questions;
+    private EditText examNameET;
     private ListView questionsLv;
 
     private DatabaseReference myRef;
@@ -46,6 +47,7 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
 
         this.myRef = FirebaseDatabase.getInstance().getReference();
 
+        this.examNameET = findViewById(R.id.examNamePT);
         this.saveBtn = findViewById(R.id.saveBtn);
         this.plusBtn = findViewById(R.id.addQuestionBtn);
         this.questionsLv = findViewById(R.id.questionsLV);
@@ -82,8 +84,10 @@ public class CreateExamActivity extends AppCompatActivity implements View.OnClic
         {
             String userId = ((Config)getApplication()).getUserIdentifier();
             String examId = this.myRef.child("users").push().getKey();
+            String examName = String.valueOf(this.examNameET.getText());
 
             this.myRef.child("exams").child(examId).child("creator").setValue(userId);
+            this.myRef.child("exams").child(examId).child("name").setValue(examName);
             this.myRef.child("exams").child(examId).child("questions").setValue(this.questions);
 
             Intent i = new Intent(CreateExamActivity.this, TeacherMenuActivity.class);

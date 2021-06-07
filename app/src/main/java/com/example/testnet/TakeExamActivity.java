@@ -61,15 +61,28 @@ public class TakeExamActivity extends AppCompatActivity {
 
         }
 
+        final int grade = calculateGrade();
+
+        Query q = this.myRef.child("exams").child(this.examId).child("name");
+
+        q.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String examName = String.valueOf(dataSnapshot.getValue());
+                //add grade to firebase
+                myRef.child("users").child(((Config)getApplication()).getUserIdentifier()).child("grades").child(examName).setValue(String.valueOf(grade));
+
+                Intent i = new Intent(TakeExamActivity.this, StudentMenuActivity.class);
+                startActivity(i);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 
 
-        int grade = calculateGrade();
-
-        //add grade to firebase
-        this.myRef.child("users").child(((Config)getApplication()).getUserIdentifier()).child("grades").child(examId).setValue(String.valueOf(grade));
-
-        Intent i = new Intent(TakeExamActivity.this, StudentMenuActivity.class);
-        startActivity(i);
     }
 
     public void getQuestionData(){

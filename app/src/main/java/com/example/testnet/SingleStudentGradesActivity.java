@@ -73,7 +73,7 @@ public class SingleStudentGradesActivity extends AppCompatActivity {
         testsLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //todo: get grade from the database
+                //get grade from the database
                 Toast.makeText(SingleStudentGradesActivity.this, "Your grade is: " + gradesArr.get(position), Toast.LENGTH_SHORT).show();
             }
         });
