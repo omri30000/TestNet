@@ -38,7 +38,7 @@ public class StartActivity extends AppCompatActivity {
         InputStream stream;
 
         try {
-            stream = assets.open("logo.jpg");
+            stream = assets.open("logo.png");
             Drawable img = Drawable.createFromStream(stream, null);
             this.logoIv.setImageDrawable(img);
         }
