@@ -79,24 +79,29 @@ public class SignupActivity extends AppCompatActivity {
         if (this.userType.equals("Student"))
         {
             Intent i = new Intent(SignupActivity.this, StudentMenuActivity.class);
-            i.putExtra("userIdentifier", userIdentifier); // todo: remove this and use Config instead
             startActivity(i);
         }
         else if (this.userType.equals("Teacher"))
         {
             Intent i = new Intent(SignupActivity.this, TeacherMenuActivity.class);
-            i.putExtra("userIdentifier", userIdentifier); // todo: remove this and use Config instead
             startActivity(i);
         }
     }
 
     /**
-     * The method will check if the user's input is valid
+     * The method will check whether the user's input is valid or invalid
      * @return true or false according to the user's input's validity
      */
     private boolean isDetailsValid(User user) {
         if (this.userType.equals("None")) return false;
-        //todo: check given values of username, password, email (maybe with RegEx?)
-        return true;
+
+        String usernameReg = "^[a-zA-Z0-9]{5,30}+$";
+        String passwordReg = "^(?=.*[^a-zA-Z]).{8,40}$";
+
+        if (!user.getUsername().matches(usernameReg)){
+            return false;
+        }
+
+        return user.getPassword().matches(passwordReg);
     }
 }

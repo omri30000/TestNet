@@ -41,7 +41,7 @@ public class JoinExamActivity extends AppCompatActivity {
         this.myRef.child("exams").child(examId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()) {
+                if (dataSnapshot.exists()) {
 
                     // exam exists in the database
                     Intent i = new Intent(JoinExamActivity.this, TakeExamActivity.class);
@@ -58,30 +58,5 @@ public class JoinExamActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    /**
-     * The function will check if the given exam id is valid and exists in the database
-     * @param id - the given ID of a specific exam
-     * @return true or false if the exam appears in the DB
-     */
-    private boolean isExamExist(String id)
-    {
-        this.myRef.child("exams").child(id).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dst : dataSnapshot.getChildren()) {
-                    if(dataSnapshot.exists()) {
-                        // exam exists in the database
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        //todo: check if the ID appears in the database and return the result
-        return true;
     }
 }

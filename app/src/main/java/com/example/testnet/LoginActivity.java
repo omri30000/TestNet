@@ -50,7 +50,11 @@ public class LoginActivity extends AppCompatActivity {
 
             this.usernameEt.setText("");
             this.passwordEt.setText("");
-            //todo: add details validation, consider using RegEx
+
+            if (!validateInput(username, password)){
+                Toast.makeText(this, "Invalid name or password", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
         catch (Exception e) {
             Toast.makeText(this, "Invalid name or password", Toast.LENGTH_SHORT).show();
@@ -74,13 +78,11 @@ public class LoginActivity extends AppCompatActivity {
                         if (user.getUserType().equals("Teacher"))
                         {
                             Intent i = new Intent(LoginActivity.this, TeacherMenuActivity.class);
-                            i.putExtra("userIdentifier", userIdentifier); // todo: remove this and use Config instead
                             startActivity(i);
                         }
                         else if (user.getUserType().equals("Student"))
                         {
                             Intent j = new Intent(LoginActivity.this, StudentMenuActivity.class);
-                            j.putExtra("userIdentifier", userIdentifier); // todo: remove this and use Config instead
                             startActivity(j);
                         }
                     }
@@ -104,6 +106,23 @@ public class LoginActivity extends AppCompatActivity {
     public void signupBtnClicked(View view) {
         Intent i = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(i);
+    }
 
+    /**
+     * The method will check whether the user's input is valid or invalid
+     * username must contain only alphanumeric chars and be 5-30 chars long
+     * @param username the input of the user for username
+     * @param password the input of the user for password
+     * @return true or false whether the input is valid or isn't
+     */
+    public boolean validateInput(String username, String password){
+        String usernameReg = "^[a-zA-Z0-9]{5,30}+$";
+        String passwordReg = "^(?=.*[^a-zA-Z]).{8,40}$";
+
+        if (!username.matches(usernameReg)){
+            return false;
+        }
+
+        return password.matches(passwordReg);
     }
 }

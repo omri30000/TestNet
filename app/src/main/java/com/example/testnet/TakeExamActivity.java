@@ -115,7 +115,6 @@ public class TakeExamActivity extends AppCompatActivity {
      * @return the student's grade
      */
     public int calculateGrade(){
-        //todo: make sure the calculation works
         int count = 0;
 
         for(int i = 0; i < this.questionArr.size(); i++){

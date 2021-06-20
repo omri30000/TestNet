@@ -9,40 +9,36 @@
     <Button
         android:id="@+id/saveBtn"
         style="@style/ButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_width="77dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/questionsLV" />
 
     <ListView
         android:id="@+id/questionsLV"
-        android:layout_width="298dp"
-        android:layout_height="427dp"
-        android:layout_marginEnd="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/saveBtn"
+        android:layout_width="341dp"
+        android:layout_height="334dp"
+        android:layout_marginTop="60dp"
+        android:outlineAmbientShadowColor="#FFCC00"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/examNamePT"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintTop_toBottomOf="@+id/examNamePT" />
 
     <Button
         android:id="@+id/addQuestionBtn"
         style="@style/ButtonStyle"
-        android:layout_width="56dp"
-        android:layout_height="49dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="50dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="32dp"
         android:text="@string/plus"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/saveBtn"
-        app:layout_constraintHorizontal_bias="0.147"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionsLV" />
 
     <EditText
         android:id="@+id/examNamePT"

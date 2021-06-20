@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class QuestionToAnswerAdapter extends ArrayAdapter<Question> {
@@ -30,7 +32,7 @@ public class QuestionToAnswerAdapter extends ArrayAdapter<Question> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater li = (LayoutInflater)this.ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
+        ArrayList<String> answers = new ArrayList<String>(); // help shuffling the answers
         View v = li.inflate(this.questionResourceId, null);
 
         Question q = this.data.get(position);
@@ -38,19 +40,24 @@ public class QuestionToAnswerAdapter extends ArrayAdapter<Question> {
         TextView questionTv = v.findViewById(R.id.questionTV);
         questionTv.setText(q.getQuestion());
 
+        answers.add(q.getFirstOption());
+        answers.add(q.getSecondOption());
+        answers.add(q.getThirdOption());
+        answers.add(q.getFourthOption());
 
-        //todo: shuffle answers
+        Collections.shuffle(answers);
+
         RadioButton firstOptionRb = v.findViewById(R.id.option1RB);
-        firstOptionRb.setText(q.getFirstOption());
+        firstOptionRb.setText(answers.get(0));
 
         RadioButton secondOptionRb = v.findViewById(R.id.option2RB);
-        secondOptionRb.setText(q.getSecondOption());
+        secondOptionRb.setText(answers.get(1));
 
         RadioButton thirdOptionRb = v.findViewById(R.id.option3RB);
-        thirdOptionRb.setText(q.getThirdOption());
+        thirdOptionRb.setText(answers.get(2));
 
         RadioButton fourthOptionRb = v.findViewById(R.id.option4RB);
-        fourthOptionRb.setText(q.getFourthOption());
+        fourthOptionRb.setText(answers.get(3));
 
         return v;
     }
